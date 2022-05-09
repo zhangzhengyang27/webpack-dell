@@ -40,8 +40,8 @@ webpack.config.js 文件必须要放到根目录才可以`
 const path = require('path');
 
 module.exports = {
-// 模式
-mode: 'development',
+// 模式 production打包出的代码是一行显示的 压缩
+mode: 'development', // 未压缩
 // 入口
 entry: {
 main: './src/index.js'
@@ -52,4 +52,7 @@ filename: 'bundle.js',
 path: path.resolve(__dirname, 'bundle')
 }
 }
+
+修改webpack打包的配置文件 (指定任意文件)
+npx webpack --config webpackrename.js
 
