@@ -56,3 +56,8 @@ path: path.resolve(__dirname, 'bundle')
 修改webpack打包的配置文件 (指定任意文件)
 npx webpack --config webpackrename.js
 
+
+file-loader、url-loader
+
+
+http://127.0.0.1:8001
