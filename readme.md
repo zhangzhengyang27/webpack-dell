@@ -1,12 +1,11 @@
 touch 1.html 创建html文件
 
-npx webpack index.js  打包
+npx webpack index.js 打包
 
-npx webpack lesson01/index.js   webpack 默认是将dist打包到主目录的，现阶段需要手动移动
+npx webpack lesson01/index.js webpack 默认是将dist打包到主目录的，现阶段需要手动移动
 
 模块打包工具
 webpack官方文档
-
 
 {
 "name": "lesson",
@@ -35,3 +34,22 @@ webpack -v
 npm i webpack webpack-cli -D
 
 npm info webpack 查看历史的版本
+
+webpack.config.js 文件必须要放到根目录才可以`
+
+const path = require('path');
+
+module.exports = {
+// 模式
+mode: 'development',
+// 入口
+entry: {
+main: './src/index.js'
+},
+// 出口 打包的目录和文件名称
+output: {
+filename: 'bundle.js',
+path: path.resolve(__dirname, 'bundle')
+}
+}
+
