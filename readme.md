@@ -56,8 +56,8 @@ path: path.resolve(__dirname, 'bundle')
 修改webpack打包的配置文件 (指定任意文件)
 npx webpack --config webpackrename.js
 
-
 file-loader、url-loader
 
-
-http://127.0.0.1:8001
+plugin可以在webpack运行到某个时候的时候，帮你做一些事情
+htmlWebpackPlugin 会在打包结束后，自动生成一个html文件，并把打包后生成的js自动引入html中
+CleanWebpackPlugin 不是官方推荐的插件
