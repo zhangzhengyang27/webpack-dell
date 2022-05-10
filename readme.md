@@ -61,3 +61,15 @@ file-loader、url-loader
 plugin可以在webpack运行到某个时候的时候，帮你做一些事情
 htmlWebpackPlugin 会在打包结束后，自动生成一个html文件，并把打包后生成的js自动引入html中
 CleanWebpackPlugin 不是官方推荐的插件
+
+webpack 文档
+
+出错时可以查看源代码，做源代码与生成代码的映射
+devtool 就是配置source-map
+推荐使用的devtool配置
+development devtool: 'cheap-module-eval-source-map',
+production devtool: 'cheap-module-source-map',
+inline- 将source-map放到打包后的js文件中，不新增一个js
+cheap-  只显示行信息，不显示列信息
+module- loader里面的错误
+eval- 执行代码，提高执行效率

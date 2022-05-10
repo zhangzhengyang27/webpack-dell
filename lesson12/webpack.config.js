@@ -6,8 +6,8 @@ module.exports = {
 	mode: 'development',
 	// development devtool: 'cheap-module-eval-source-map',
 	// production devtool: 'cheap-module-source-map',
-	// devtool:"source-map",
-	// devtool: 'cheap-module-eval-source-map',
+	devtool:"source-map",
+	devtool: 'cheap-module-eval-source-map',
 	entry: {
 		main: './src/index.js'
 	},

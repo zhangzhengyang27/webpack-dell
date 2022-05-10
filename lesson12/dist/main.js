@@ -93,9 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-consele.log('hello world');
+eval("consele.log('hello world');\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map
