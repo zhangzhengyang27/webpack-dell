@@ -1,4 +1,5 @@
 import avatar from './avatar.jpg';
+// 解决样式冲突的问题
 import style from './index.scss';
 import createAvatar from './createAvatar';
 
