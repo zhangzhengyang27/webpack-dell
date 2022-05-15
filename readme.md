@@ -118,6 +118,34 @@ new webpack.HotModuleReplacementPlugin()
 ],
 *整理文档 documentation - guides Hot Module Replacement(HMR)
 
+使用babel处理ES6语法
+1、npm install @babel/preset-env --save-dev
+2、webPack配置
+module: {
+rules: [
+{
+test: /\.m?js$/,
+exclude: /node_modules/,
+use: {
+loader: "babel-loader",
+options: {
+presets: ['@babel/preset-env']
+}
+}
+}
+]
+}
+3、npm install @babel/preset-env --save-dev
+4、新建.babelrc的文件  放babel的配置信息
+配置信息"useBuiltIns": "usage" 可以有选择的打包，减少打包后的文件大小 只会注入我们使用的语法特性
+{
+"presets": ["@babel/preset-env"]
+}
+
+@babel/polyfill 打包的时候会污染全局环境；如果写一个库的是时候需要使用@babel/plugin-transform-runtime
+
+babel 配置react打包  查看babel的官网
+
 
 
 
