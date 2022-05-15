@@ -4,12 +4,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-	// development devtool: 'cheap-module-eval-source-map',
-	// production devtool: 'cheap-module-source-map',
-	// devtool:"source-map",
 	devtool: 'cheap-module-eval-source-map',
 	entry: {
 		main: './src/index.js'
+	},
+	devServer: {
+		contentBase: './dist',
+		open: true,
+		port: 8080
 	},
 	module: {
 		rules: [{
@@ -21,16 +23,16 @@ module.exports = {
 					outputPath: 'images/',
 					limit: 10240
 				}
-			}
+			} 
 		}, {
 			test: /\.(eot|ttf|svg)$/,
 			use: {
 				loader: 'file-loader'
-			}
+			} 
 		}, {
 			test: /\.scss$/,
 			use: [
-				'style-loader',
+				'style-loader', 
 				{
 					loader: 'css-loader',
 					options: {
