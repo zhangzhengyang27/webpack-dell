@@ -1,5 +1,3 @@
-// import _ from "lodash"
-// _.join(['Dell', 'Lee'], '-')
 function getComponent() {
 	return import('lodash').then(({ default: _ }) => {
 		var element = document.createElement('div');

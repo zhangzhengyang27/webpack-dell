@@ -136,7 +136,7 @@ presets: ['@babel/preset-env']
 ]
 }
 3、npm install @babel/preset-env --save-dev
-4、新建.babelrc的文件  放babel的配置信息
+4、新建.babelrc的文件 放babel的配置信息
 配置信息"useBuiltIns": "usage" 可以有选择的打包，减少打包后的文件大小 只会注入我们使用的语法特性
 {
 "presets": ["@babel/preset-env"]
@@ -144,17 +144,16 @@ presets: ['@babel/preset-env']
 
 @babel/polyfill（在window对象上绑定了一些新的属性，例如promise） 打包的时候会污染全局环境；如果写一个库的是时候需要使用@babel/plugin-transform-runtime
 
-babel 配置react打包  查看babel的官网
+babel 配置react打包 查看babel的官网
 
 "useBuiltIns": "usage" 就`没有必要在每一个文件中引入 import "@babel/polyfill";
-
 
 // Tree Shaking 只支持 ES Module ,ES Module是动态的引入
 import { add } from './math.js';
 
 在webpack.config.js中的配置
 optimization: {
-    usedExports: true
+usedExports: true
 },
 在package.json文件中配置,关闭副作用
 "sideEffects": false,
@@ -176,6 +175,22 @@ Development 和Production的模式区分打包
 "webpack-merge": "^4.1.5" 需要安装合并的插件包
 "dev": "webpack-dev-server --config ./build/webpack.dev.js",
 "build": "webpack --config ./build/webpack.prod.js"
+
+codeSplitting
+打包文件会很大，加载时间会很长
+将外部插件打包进我们自己的js，我们稍微修改，再打包，用户要重新加载js,拆分开来是存在缓存的
+代码分割，和webpack无关
+webpack中实现代码分割，两种方式
+
+1. 同步代码： 只需要在webpack.common.js中做optimization的配置即可
+   optimization: {
+   splitChunks: {
+   chunks: 'all'
+   }
+   },
+生成vendors~main.js文件
+2. 异步代码(import): 异步代码，无需做任何配置，会自动进行代码分割，放置到新的文件中  "babel-plugin-dynamic-import-webpack": "^1.1.0",
+会把loadsh打包成0.js
 
 
 
