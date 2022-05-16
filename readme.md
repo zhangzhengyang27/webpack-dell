@@ -142,9 +142,35 @@ presets: ['@babel/preset-env']
 "presets": ["@babel/preset-env"]
 }
 
-@babel/polyfill 打包的时候会污染全局环境；如果写一个库的是时候需要使用@babel/plugin-transform-runtime
+@babel/polyfill（在window对象上绑定了一些新的属性，例如promise） 打包的时候会污染全局环境；如果写一个库的是时候需要使用@babel/plugin-transform-runtime
 
 babel 配置react打包  查看babel的官网
+
+"useBuiltIns": "usage" 就`没有必要在每一个文件中引入 import "@babel/polyfill";
+
+
+// Tree Shaking 只支持 ES Module ,ES Module是动态的引入
+import { add } from './math.js';
+
+在webpack.config.js中的配置
+optimization: {
+    usedExports: true
+},
+在package.json文件中配置,关闭副作用
+"sideEffects": false,
+
+打包后的结果，下面并没有真正的删除Tree Shaking ,因为我们现在是处于开发的环境，如果是production环境则会真正的Tree Shaking掉多余的代码
+/*! exports provided: add, minus */
+/*! exports used: add */
+
+在production环境下，都不用配置
+optimization: {
+usedExports: true
+},
+但是package.json里面的配置还是需要的
+
+Development 和Production的模式区分打包
+1、sourceMap
 
 
 

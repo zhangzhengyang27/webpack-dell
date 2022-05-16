@@ -77,6 +77,9 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new webpack.HotModuleReplacementPlugin()
     ],
+    optimization: {
+        usedExports: true
+    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
