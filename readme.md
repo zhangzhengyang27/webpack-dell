@@ -172,6 +172,11 @@ usedExports: true
 Development 和Production的模式区分打包
 1、sourceMap
 
+新建build文件夹
+"webpack-merge": "^4.1.5" 需要安装合并的插件包
+"dev": "webpack-dev-server --config ./build/webpack.dev.js",
+"build": "webpack --config ./build/webpack.prod.js"
+
 
 
 
