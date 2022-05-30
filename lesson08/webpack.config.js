@@ -23,7 +23,7 @@ module.exports = {
 				{
 					loader: 'css-loader',
 					options: {
-						// scss里面再引入sass，需要配置然后重新打包
+						// scss里面再引入sass问题
 						importLoaders: 2,
 						// 解决模块之间样式冲突的问题
 						modules: true
